@@ -1,5 +1,5 @@
 import fetchAPI from '../api'; 
-import './ArticleItem.js';
+import './articleItem.js';
 
 class ArticleList extends HTMLElement {
 
