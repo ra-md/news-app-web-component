@@ -1,4 +1,12 @@
-@import "common.css";
+* {
+	margin: 0;
+	box-sizing: border-box;
+}
+
+:host {
+	--primary-color: #db4d3f;
+	--secondary-color: #c23426;
+}
 
 body {
 	font-family: sans-serif;

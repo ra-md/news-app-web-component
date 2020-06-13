@@ -43,12 +43,88 @@ class SelectCountry extends HTMLElement {
 		});
 	};
 
+	style() {
+		return `
+			* {
+				margin: 0;
+				box-sizing: border-box;
+			}
+
+			:host {
+				--primary-color: #db4d3f;
+				--secondary-color: #c23426;
+			}
+
+			.overlay {
+				background: rgba(0,0,0,0.5);
+				position: fixed;
+				top: 0;
+				bottom: 0;
+				left: 0;
+				right: 0;
+				z-index: 11;
+				display: none;
+			}
+
+			.btn-open-modal {
+				position: fixed;
+				z-index: 10;
+				top: 0.5em;
+				right: 0.5em;
+				background: transparent;
+				border: none;
+				color: white;
+				cursor: pointer;
+			}
+
+			.modal {
+				position: fixed;
+			    top: 50%;
+			    left: 50%;
+			    transform: translate(-50%, -50%);
+			    z-index: 12;
+			    background: white;
+			    border-radius: 5px;
+			    width: 16em;
+			    display: none;
+			}
+
+			h3 {
+				color: black;
+				cursor: default;
+			}
+
+			ul {
+				text-align: center;
+				padding: 0;
+			}
+
+			li {
+				list-style: none;
+				border-bottom: 1px solid #ccc;
+				color: #157afb;
+				padding: 0.5em;
+				cursor: pointer;
+			}
+
+			li:last-child {
+				color: red;
+				border-bottom: none;
+			}
+
+			.country:hover,
+			.btn-close-modal:hover {
+				background: #ccc;
+			}
+		`;
+	};
+
 	render() {
 		this.shadowDOM.innerHTML = `
 			<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css">
 
 			<style>
-				@import "src/style/selectCountry.css";
+				${this.style()}
 			</style>
 
 			<button class="btn-open-modal"><i class="fas fa-ellipsis-v"></i></button>

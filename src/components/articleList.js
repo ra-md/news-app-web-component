@@ -39,9 +39,38 @@ class ArticleList extends HTMLElement {
 
 	style() {
 		return `
-			<style>
-				@import "src/style/articleList.css";
-			</style>
+			:host {
+				margin: 6em 0!important;
+				display: grid;
+				grid-gap: 2em;
+			}
+
+			.center {
+				position: absolute;
+				top: 3em;
+				left: 50%;
+				transform: translateX(-50%);
+				display: flex;
+				width: 100%;
+				justify-content: center;
+			}
+
+			.center p {
+				margin: 0.5em;
+				font-size: 15px;
+			}
+
+			@media screen and (min-width: 768px) {
+				:host {
+					grid-template-columns: 1fr 1fr;
+				}
+			}
+
+			@media screen and (min-width: 1024px) {
+				:host {
+					grid-template-columns: 1fr 1fr 1fr;
+				}
+			}
 		`;
 	};
 
@@ -49,7 +78,9 @@ class ArticleList extends HTMLElement {
 		this.shadowDOM.innerHTML = '';
 
 		this.shadowDOM.innerHTML = `
-			${this.style()}
+			<style>
+				${this.style()}
+			</style>
 
 			<div class="center">
 				<p>Kategori: ${this._userRequest.category}</p>
@@ -67,7 +98,9 @@ class ArticleList extends HTMLElement {
 
 	renderLoading() {
 		this.shadowDOM.innerHTML = 	`
-			${this.style()}
+			<style>
+				${this.style()}
+			</style>
 
 			<h1 class="center">loading...</h1>
 		`;
