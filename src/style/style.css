@@ -1,0 +1,10 @@
+@import "common.css";
+
+body {
+	font-family: sans-serif;
+}
+
+.container {
+	margin: 0 auto;
+	width: 90%;
+}
