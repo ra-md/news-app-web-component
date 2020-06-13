@@ -1,5 +1,5 @@
 const API_KEY = '835c4fd1c5a9480082f6fcc812602952';
-const URL_API = 'http://newsapi.org/v2';
+const URL_API = 'https://newsapi.org/v2';
 
 function fetchAPI({ countryCode, category }) {
 	return new Promise((resolve, reject) => {
